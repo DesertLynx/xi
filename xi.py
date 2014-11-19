@@ -20,7 +20,9 @@ option = 0
 
 if output: 
 	for line in matches:
-		print(str(option) + " : " + line)
+
+		# Show each line, but chop off really long lines
+		print(str(option) + " : " + (line[:100] + (line[100:] and "...")))
 		option = option + 1
 
 	selection = int(input())
