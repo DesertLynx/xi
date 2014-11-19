@@ -28,8 +28,9 @@ if output:
 	if matches[selection]:
 			
 		file = matches[selection].split(":")[0];
+		lineNumber = matches[selection].split(":")[1];
 
-		os.system('vi ' + file);
+		os.system('vi ' + file + ' +' + lineNumber);
 
 	else: 
 		exit(1)
