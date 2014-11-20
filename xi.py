@@ -34,6 +34,9 @@ option = 0
 if output: 
 	for line in matches:
 
+        #display matches with prettiness 
+		line = re.sub(searchTerm, '\033[94m' + searchTerm + '\033[0m', line)
+
 		# newlines in the middle of results are annoying
 		line = re.sub("\n", "", line);
 		line = re.sub("\r", "", line);
