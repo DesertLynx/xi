@@ -9,13 +9,22 @@ import subprocess
 if len(sys.argv) < 1:
 	print("Usage: xi <searchterm> [path]")
 
-if len(sys.argv) >= 3: 
-    path = sys.argv[2] 
+# Grab options out of the args list
+if('--fgrep' in sys.argv):
+	method = "fgrep"
+else: 
+	method = "grep"
+
+args = list(filter(lambda x: not re.match('^--', x), sys.argv))
+
+#process standard positional args
+if len(args) >= 3: 
+    path = args[2] 
 else: 
     path = os.getcwd()
 
 searchTerm = sys.argv[1]
-process = subprocess.Popen(['grep -rin '+  searchTerm + " " + path], shell=True, stdout=subprocess.PIPE);
+process = subprocess.Popen([ method + ' -rin "'+  searchTerm + '" ' + path], shell=True, stdout=subprocess.PIPE);
 output = process.communicate()[0]
 
 matches = [];
