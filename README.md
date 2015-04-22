@@ -1,7 +1,9 @@
 xi
 ==
 
-fgrep + vim. Similar to cmd + t in Atom/Sublime. No I can't code python. 
+fgrep + vim wrapped more conveniently. Searches quickly through the current folder structure and allows jumps to the matching string. 
+
+[![asciicast](https://asciinema.org/a/19055.png)](https://asciinema.org/a/19055)
 
 #### Requires
 python 3 (for no particularly good reason), vim, sensible operating system (ie not windows).
